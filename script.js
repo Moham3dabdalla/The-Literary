@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // تحميل البيانات
-  fetch("books.json")
+  fetch("./books.json")
     .then(response => response.json())
     .then(data => {
       booksData = data.books;
