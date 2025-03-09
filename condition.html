@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="page-title">Terms of Use</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="conditions">
+    <div class="hero-actions">
+    <a href="#" class="btn btn-primary" id="send-email">Send Email</a>
+      <a href="#" class="btn-text" id="language-toggle">
+        Language: <span id="current-language">EN</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+    <h1 id="conditions-title">Conditions</h1>
+
+    <section>
+      <h2 id="copyright-title">Copyright Protection</h2>
+      <p id="copyright-text">You are not allowed to use any content created by others without permission. The website is not responsible for any misuse of the content. Please ensure that the book you share is 100% original.</p>
+    </section>
+
+    <section>
+      <h2 id="licensing-title">Licensing</h2>
+      <p id="licensing-text">If the book you share has a license, please inform the website developers about it. Any book you share will be marked with a copyright license provided by the website.</p>
+    </section>
+
+    <section>
+      <h2 id="sensitive-title">Sensitive Content</h2>
+      <p id="sensitive-text">No sensitive content is allowed in any form. Any book containing sensitive content will be rejected from the website.</p>
+      <ul id="sensitive-list"></ul>
+    </section>
+
+    <section>
+      <h2 id="upload-title">How to Get Your Book on the Website</h2>
+      <p id="upload-text1">Please send an email to the journal team. You will receive a response to share your book with the team. If your book has passed all the above conditions, it will be uploaded to the website's database.</p>
+      <p id="upload-text2">If your book is approved by our team, we will send you a response with approval. After that, please provide our team with the following:</p>
+      <ul id="upload-list"></ul>
+    </section>
+  </div>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const languageToggle = document.getElementById("language-toggle");
+      const currentLanguageText = document.getElementById("current-language");
+      let currentLanguage = localStorage.getItem("selectedLanguage") || "en";
+
+      const translations = {
+        en: {
+          pageTitle: "Terms of Use",
+          sendEmail: "Send Email",
+          conditionsTitle: "Conditions",
+          copyrightTitle: "Copyright Protection",
+          copyrightText: "You are not allowed to use any content created by others without permission. The website is not responsible for any misuse of the content. Please ensure that the book you share is 100% original.",
+          licensingTitle: "Licensing",
+          licensingText: "If the book you share has a license, please inform the website developers about it. Any book you share will be marked with a copyright license provided by the website.",
+          sensitiveTitle: "Sensitive Content",
+          sensitiveText: "No sensitive content is allowed in any form. Any book containing sensitive content will be rejected from the website.",
+          sensitiveItems: [
+        "Racial or ethnic discrimination",
+        "Sexual exploitation",
+        "Sexually explicit content",
+        "Child abuse or exploitation"
+      ],
+          uploadTitle: "How to Get Your Book on the Website",
+          uploadText1: "Please send an email to the journal team. You will receive a response to share your book with the team. If your book has passed all the above conditions, it will be uploaded to the website's database.",
+          uploadText2: "If your book is approved by our team, we will send you a response with approval. After that, please provide our team with the following:",
+          uploadItems: [
+        "Your name",
+        "Contact information (phone number or email) if you want readers to contact you",
+        "Licensing information if the book has a license",
+        "Language and version of the book"
+      ],
+          language: "EN"
+        },
+        ar: {
+          pageTitle: "شروط الاستخدام",
+          sendEmail: "إرسال بريد إلكتروني",
+          conditionsTitle: "الشروط",
+          copyrightTitle: "حماية حقوق النشر",
+          copyrightText: "لا يُسمح لك باستخدام أي محتوى أنشأه الآخرون دون إذن. الموقع غير مسؤول عن أي إساءة استخدام للمحتوى. يرجى التأكد من أن الكتاب الذي تشاركه أصلي بنسبة 100٪.",
+          licensingTitle: "الترخيص",
+          licensingText: "إذا كان للكتاب الذي تشاركه ترخيص، فيرجى إبلاغ مطوري الموقع بذلك. سيتم وضع علامة ترخيص حقوق النشر على أي كتاب تشاركه.",
+          sensitiveTitle: "المحتوى الحساس",
+          sensitiveText: "لا يُسمح بأي محتوى حساس بأي شكل من الأشكال. سيتم رفض أي كتاب يحتوي على محتوى حساس من الموقع.",
+          sensitiveItems: [
+        "التمييز العرقي أو الإثني",
+        "الاستغلال الجنسي",
+        "المحتوى الجنسي الصريح",
+        "إساءة معاملة الأطفال أو استغلالهم"
+      ],
+          uploadTitle: "كيفية نشر كتابك على الموقع",
+          uploadText1: "يرجى إرسال بريد إلكتروني إلى فريق المجلة. ستتلقى رداً لمشاركة كتابك مع الفريق. إذا اجتاز كتابك جميع الشروط المذكورة أعلاه، فسيتم تحميله في قاعدة بيانات الموقع.",
+          uploadText2: "إذا تمت الموافقة على كتابك من قبل فريقنا، فسوف نرسل لك ردًا بالموافقة. بعد ذلك، يرجى تزويد فريقنا بالمعلومات التالية:",
+          uploadItems: [
+        "اسمك",
+        "معلومات الاتصال (رقم الهاتف أو البريد الإلكتروني) إذا كنت ترغب في أن يتواصل معك القراء",
+        "معلومات الترخيص إذا كان للكتاب ترخيص",
+        "لغة وإصدار الكتاب"
+      ],
+          language: "العربية"
+        }
+      };
+
+      function updateLanguage() {
+        document.getElementById("page-title").textContent = translations[currentLanguage].pageTitle;
+        document.getElementById("send-email").textContent = translations[currentLanguage].sendEmail;
+        document.getElementById("conditions-title").textContent = translations[currentLanguage].conditionsTitle;
+        document.getElementById("copyright-title").textContent = translations[currentLanguage].copyrightTitle;
+        document.getElementById("copyright-text").textContent = translations[currentLanguage].copyrightText;
+        document.getElementById("licensing-title").textContent = translations[currentLanguage].licensingTitle;
+        document.getElementById("licensing-text").textContent = translations[currentLanguage].licensingText;
+        document.getElementById("sensitive-title").textContent = translations[currentLanguage].sensitiveTitle;
+        document.getElementById("sensitive-text").textContent = translations[currentLanguage].sensitiveText;
+        document.getElementById("upload-title").textContent = translations[currentLanguage].uploadTitle;
+        document.getElementById("upload-text1").textContent = translations[currentLanguage].uploadText1;
+        document.getElementById("upload-text2").textContent = translations[currentLanguage].uploadText2;
+        currentLanguageText.textContent = translations[currentLanguage].language;
+
+        // تحديث قوائم <li> الخاصة بالمحتوى الحساس
+        const sensitiveList = document.getElementById("sensitive-list");
+        sensitiveList.innerHTML = ""; // تفريغ القائمة القديمة
+        translations[currentLanguage].sensitiveItems.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          sensitiveList.appendChild(li);
+        });
+
+        // تحديث قوائم <li> الخاصة بكيفية نشر الكتاب
+        const uploadList = document.getElementById("upload-list");
+        uploadList.innerHTML = ""; // تفريغ القائمة القديمة
+        translations[currentLanguage].uploadItems.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          uploadList.appendChild(li);
+        });
+      }
+
+      languageToggle.addEventListener("click", () => {
+        currentLanguage = currentLanguage === "en" ? "ar" : "en";
+        localStorage.setItem("selectedLanguage", currentLanguage);
+        updateLanguage();
+      });
+
+      updateLanguage();
+    });
+    document.getElementById("send-email").addEventListener("click", () => {
+      const email = "abdallamohamedaj@gmail.com";
+      const subject = "Hello there";
+      const body = "I would like to contact you about...";
+    
+      // Open the mail client with subject and body
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+
+</html>
+
+

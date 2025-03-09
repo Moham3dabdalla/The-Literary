@@ -1,0 +1,159 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "The Transformation of Modern Literature in the Digital Age",
+      "author": "Eleanor Richards",
+      "Date": "March 5, 2025",
+      "url": "article1.html",
+      "contact": "eleanor@example.com",
+      "description": "This book explores how digital technology is reshaping literature, changing the way we write and consume stories.",
+      "licence": true,
+      "translation": {
+        "arabic": true,
+        "english": true
+      }
+    },
+    {
+      "id": "2",
+      "title": "History of AI: From Fiction to Reality",
+      "author": "John Doe",
+      "Date": "February 20, 2025",
+      "url": "article2.html",
+      "contact": "john@example.com",
+      "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+      "licence": false,
+      "translation": {
+        "arabic": false,
+        "english": true
+      }
+    },
+    {
+      "id": "3",
+      "title": "انا ام",
+      "author": "Mohamed Abdalla",
+      "Date": "March 8, 2025",
+      "url": "https://mediafire.com",
+      "contact": "abdallamohamedaj@gmail.com",
+      "description": "قصة حرب تحكي عن ام وابنيها خلال رحلتم للوصول للامان في الحرب العالمية الثانية",
+      "licence": true,
+      "translation": {
+        "arabic": true,
+        "english": true
+      }
+    },
+    {
+      "id": "4",
+      "title": "The Interpreter",
+      "author": "JJ Mark",
+      "Date": "February 10, 2025",
+      "url": "article2.html",
+      "contact": "john@example.com",
+      "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+      "licence": false,
+      "translation": {
+        "arabic": false,
+        "english": true
+      }
+     },
+     {
+       "id": "5",
+       "title": "The Interpreter",
+       "author": "JJ Mark",
+       "Date": "February 10, 2025",
+       "url": "article2.html",
+       "contact": "john@example.com",
+       "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+       "licence": false,
+       "translation": {
+         "arabic": false,
+         "english": true
+       }
+     },
+     {
+       "id": "6",
+       "title": "The Interpreter",
+       "author": "JJ Mark",
+       "Date": "February 10, 2025",
+       "url": "article2.html",
+       "contact": "john@example.com",
+       "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+       "licence": false,
+       "translation": {
+         "arabic": false,
+         "english": true
+       }
+     },
+     {
+       "id": "7",
+       "title": "The Interpreter",
+       "author": "JJ Mark",
+       "Date": "February 10, 2025",
+       "url": "article2.html",
+       "contact": "john@example.com",
+       "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+       "licence": false,
+       "translation": {
+         "arabic": false,
+         "english": true
+       }
+     },
+     {
+       "id": "8",
+       "title": "The Interpreter",
+       "author": "JJ Mark",
+       "Date": "February 10, 2025",
+       "url": "article2.html",
+       "contact": "john@example.com",
+       "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+       "licence": false,
+       "translation": {
+         "arabic": false,
+         "english": true
+       }
+     },
+     {
+       "id": "9",
+       "title": "The Interpreter",
+       "author": "JJ Mark",
+       "Date": "February 10, 2025",
+       "url": "article2.html",
+       "contact": "john@example.com",
+       "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+       "licence": false,
+       "translation": {
+         "arabic": false,
+         "english": true
+       }
+     },
+     {
+       "id": "10",
+       "title": "The Interpreter",
+       "author": "JJ Mark",
+       "Date": "February 10, 2025",
+       "url": "article2.html",
+       "contact": "john@example.com",
+       "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+       "licence": false,
+       "translation": {
+         "arabic": false,
+         "english": true
+       }
+     },
+     {
+       "id": "11",
+       "title": "The Interpreter",
+       "author": "JJ Mark",
+       "Date": "February 10, 2025",
+       "url": "article2.html",
+       "contact": "john@example.com",
+       "description": "A deep dive into the evolution of artificial intelligence, tracing its roots from science fiction to real-world applications.",
+       "licence": false,
+       "translation": {
+         "arabic": false,
+         "english": true
+       }
+     }
+     
+  ]
+}
