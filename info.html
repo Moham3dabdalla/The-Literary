@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  <div id="book-details-container"></div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookId = urlParams.get('id');
+      const bookDetailsContainer = document.getElementById("book-details-container");
+    
+      if (bookId) {
+        fetch("books.json")
+          .then(response => response.json())
+          .then(data => {
+            const book = data.books.find(b => b.id === bookId); // استخدام المعرف الذي تم تمريره في الرابط
+            if (book) {
+              bookDetailsContainer.innerHTML = `
+                <h2>${book.title}</h2>
+                <p><strong>الكاتب:</strong> ${book.author}</p>
+                <p><strong>التفاصيل:</strong> ${book.description}</p>
+                <p><strong>الترجمة:</strong> ${book.translation.arabic ? "النسخة العربية" : "النسخة الإنجليزية"}</p>
+                <p><strong>تاريخ النشر:</strong> ${book.Date}</p>
+                <p><strong>الرخصة:</strong> ${book.licence ? ": لا يمكنك إعادة استخدام أو نسخ محتوى هذا الكتاب بأي شكل من الأشكال" : ""}</p>
+                <strong>مملوك من قبل: ${book.author}</strong>
+                <a href="${book.url}" class="download-link">تحميل الكتاب</a>
+              `;
+            } else {
+              bookDetailsContainer.innerHTML = `<p>الكتاب غير موجود.</p>`;
+            }
+          })
+          .catch(error => console.error("Error loading book details:", error));
+      }
+    });
+  </script>
+
+</body>
+
+</html>
