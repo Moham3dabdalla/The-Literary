@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Literary Journal - Fiction & Literature</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <title>مجلة أدبية - الأدب والخيال</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body dir="rtl">
   <header>
     <div class="site-title">
       <a href="index.html">
-        <span class="title-accent">The</span>
-        Literary Observer
+        <span class="title-accent">المراقب</span>
+        الأدبي
       </a>
       <div class="header-icons">
         <button class="icon-button" id="search-btn" onclick="toggleSearch()">
@@ -30,33 +27,24 @@
   </header>
 
   <div class="search">
-    <input type="text" class="search-input" id="search-input" placeholder="Search Book...">
+    <input type="text" class="search-input" id="search-input" placeholder="ابحث عن كتاب...">
   </div>
 
 
-  <!-- Hero Section -->
+  <!-- قسم المقدمة -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <h1 class="hero-titlepro">Project By: Zahra Foundation</h1>
-          <h3 class="hero-title">The Literary Observer</h3>
-          <p class="hero-subtitle">Thoughtful perspectives on culture, politics, and the arts</p>
+          <h1 class="hero-titlepro">مشروع بواسطة: مؤسسة زهرة</h1>
+          <h3 class="hero-title">المراقب الأدبي</h3>
+          <p class="hero-subtitle">وجهات نظر متعمقة حول الثقافة والسياسة والفنون</p>
           <p class="hero-subtitle">
-            You Can Get Your Own Books on the Website, send us an email before:
-            <a href="condition.html" class="condition">Read The Conditions</a>
+            يمكنك إضافة كتبك إلى الموقع، لكن يُرجى إرسال بريد إلكتروني مسبقًا:
+            <a href="condition.html" class="condition">اقرأ شروط القبول</a>
           </p>
           <div class="hero-actions">
-            <a href="#" class="btn btn-primary" id="send-email">Send Email</a>
-
-            <!-- Drop-down Language Selector -->
-            <div class="language-selector">
-              <label for="language-dropdown">Language:</label>
-              <select id="language-dropdown" onchange="changeLanguage(this.value)">
-                <option value="en" selected>English</option>
-                <option value="ar">العربية</option>
-              </select>
-            </div>
+            <a href="#" class="btn btn-primary" id="send-email">إرسال بريد إلكتروني</a>
           </div>
         </div>
       </div>
@@ -66,7 +54,7 @@
 
   <section class="featured-books">
     <div class="container">
-      <h2 class="section-title">Latest Books</h2>
+      <h2 class="section-title">أحدث الكتب المضافة</h2>
       <div id="books-container"></div>
     </div>
   </section>
@@ -78,8 +66,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <h3 class="footer-title">The Literary Observer</h3>
-          <p class="footer-text">Thoughtful perspectives on culture, politics, and the arts since 2025.</p>
+          <h3 class="footer-title">المراقب الأدبي</h3>
+          <p class="footer-text">وجهات نظر متعمقة حول الثقافة، السياسة، والفنون منذ عام 2025.</p>
           <div class="social-links">
             <a href="#" class="social-link">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
@@ -91,164 +79,52 @@
                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
               </svg>
             </a>
-            <a href="#" class="social-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-              </svg>
-            </a>
-            <a href="#" class="social-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-                <path d="m10 15 5-3-5-3z" />
-              </svg>
-            </a>
           </div>
         </div>
 
-
-
         <div class="footer-nav">
-          <h4 class="footer-heading">More</h4>
+          <h4 class="footer-heading">المزيد</h4>
           <ul class="footer-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Events</a></li>
+            <li><a href="#">من نحن</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+            <li><a href="#">وظائف</a></li>
+            <li><a href="#">الإعلانات</a></li>
+            <li><a href="#">الصحافة</a></li>
+            <li><a href="#">الفعاليات</a></li>
           </ul>
         </div>
 
         <div class="footer-subscribe">
-          <h4 class="footer-heading">Subscribe</h4>
-          <p class="footer-text">Get unlimited access to articles, podcasts, and more.</p>
-          <a href="#" class="btn btn-primary">Subscribe Now</a>
+          <h4 class="footer-heading">اشترك</h4>
+          <p class="footer-text">احصل على وصول غير محدود إلى المقالات، البودكاست، والمزيد.</p>
+          <a href="#" class="btn btn-primary">اشترك الآن</a>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div class="copyright">
-          © 2025 The Literary Observer. All rights reserved. Made by Zahra Foundation to Incourage the Write and Read Over Sudan 🇸🇩 & Africa
+          © 2025 المراقب الأدبي. جميع الحقوق محفوظة. تم إنشاؤه بواسطة مؤسسة زهرة لدعم الكتابة والقراءة في السودان 🇸🇩 وأفريقيا.
         </div>
 
         <div class="legal-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
+          <a href="#">سياسة الخصوصية</a>
+          <a href="#">شروط الخدمة</a>
+          <a href="#">سياسة الكوكيز</a>
         </div>
       </div>
     </div>
   </footer>
+
   <script src="script.js"></script>
   <script>
-    const translations = {
-      en: {
-        titlepro: "Project By: Zahra Foundation",
-        title: "The Literary Observer",
-        subtitle: "Thoughtful perspectives on culture, politics, and the arts",
-        emailText: "You Can Get Your Own Books on the Website, send us an email before:",
-        emailButton: "Send Email",
-        readConditions: "Read The Conditions",
-        latestBooks: "Latest Books",
-        footerText: "Thoughtful perspectives on culture, politics, and the arts since 2025.",
-        subscribeText: "Get unlimited access to articles, podcasts, and more.",
-        subscribeButton: "Subscribe Now",
-        more: "More",
-        aboutUs: "About Us",
-        contact: "Contact",
-        careers: "Careers",
-        advertise: "Advertise",
-        press: "Press",
-        events: "Events",
-        privacyPolicy: "Privacy Policy",
-        termsOfService: "Terms of Service",
-        cookiePolicy: "Cookie Policy",
-        copyright: "© 2025 The Literary Observer. All rights reserved."
-      },
-      ar: {
-        title: "المراقب الأدبي",
-        subtitle: "وجهات نظر متعمقة حول الثقافة والسياسة والفنون",
-        emailText: "يمكنك الحصول على كتبك الخاصة على الموقع، أرسل لنا بريدًا إلكترونيًا قبل:",
-        emailButton: "إرسال بريد إلكتروني",
-        readConditions: "اقرأ الشروط",
-        latestBooks: "أحدث الكتب",
-        footerText: "وجهات نظر متعمقة حول الثقافة والسياسة والفنون منذ 2025.",
-        subscribeText: "احصل على وصول غير محدود إلى المقالات والبودكاست والمزيد.",
-        subscribeButton: "اشترك الآن",
-        more: "المزيد",
-        aboutUs: "من نحن",
-        contact: "اتصل بنا",
-        careers: "وظائف",
-        advertise: "الإعلان",
-        press: "الصحافة",
-        events: "الفعاليات",
-        privacyPolicy: "سياسة الخصوصية",
-        termsOfService: "شروط الخدمة",
-        cookiePolicy: "سياسة الكوكيز",
-        copyright: "© 2025 المراقب الأدبي. جميع الحقوق محفوظة."
-      }
-    };
-
-    // دالة لتغيير اللغة
-    function changeLanguage(lang) {
-      // حفظ اللغة المختارة في LocalStorage
-      localStorage.setItem("selectedLanguage", lang);
-      applyLanguage(lang);
-    }
     document.getElementById("send-email").addEventListener("click", () => {
-      const email = "abdallamohamedaj@gmail.com";
-      const subject = "Hello there";
-      const body = "I would like to contact you about...";
+      const email = "zahratypa@gmail.com";
+      const subject = "مرحبًا";
+      const body = "أود التواصل معكم بخصوص...";
 
-      // Open the mail client with subject and body
+      // فتح برنامج البريد الإلكتروني مع الموضوع والمحتوى
       window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
-
-    // دالة لتطبيق اللغة على الصفحة
-    function applyLanguage(lang) {
-      document.documentElement.lang = lang;
-      document.getElementById("language-dropdown").value = lang; // تحديث القائمة المنسدلة
-
-      document.querySelector(".hero-title").textContent = translations[lang].title;
-      document.querySelector(".hero-subtitle").textContent = translations[lang].subtitle;
-      document.querySelector(".hero-subtitle + p").innerHTML =
-        translations[lang].emailText + ` <a href="condition.html" class="condition">${translations[lang].readConditions}</a>`;
-
-      document.querySelector(".btn-primary").textContent = translations[lang].emailButton;
-      document.querySelector(".section-title").textContent = translations[lang].latestBooks;
-      document.querySelector(".footer-title").textContent = translations[lang].title;
-      document.querySelector(".footer-text").textContent = translations[lang].footerText;
-      document.querySelector(".footer-subscribe p").textContent = translations[lang].subscribeText;
-      document.querySelector(".footer-subscribe .btn").textContent = translations[lang].subscribeButton;
-      document.querySelector(".footer-heading").textContent = translations[lang].more;
-
-
-      // تحديث روابط الفوتر
-      const footerLinks = document.querySelectorAll(".footer-links li a");
-      footerLinks[0].textContent = translations[lang].aboutUs;
-      footerLinks[1].textContent = translations[lang].contact;
-      footerLinks[2].textContent = translations[lang].careers;
-      footerLinks[3].textContent = translations[lang].advertise;
-      footerLinks[4].textContent = translations[lang].press;
-      footerLinks[5].textContent = translations[lang].events;
-
-      // تحديث روابط السياسات
-      const legalLinks = document.querySelectorAll(".legal-links a");
-      legalLinks[0].textContent = translations[lang].privacyPolicy;
-      legalLinks[1].textContent = translations[lang].termsOfService;
-      legalLinks[2].textContent = translations[lang].cookiePolicy;
-
-      // تحديث حقوق النشر
-      document.querySelector(".copyright").textContent = translations[lang].copyright;
-    }
-
-    // تحميل اللغة المحفوظة عند فتح الصفحة
-    window.onload = function() {
-      const savedLanguage = localStorage.getItem("selectedLanguage") || "en";
-      applyLanguage(savedLanguage);
-    };
   </script>
 </body>
 
