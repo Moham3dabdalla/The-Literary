@@ -5,6 +5,7 @@ function toggleSearch() {
     input.focus();
   } else {
     input.value = "";
+    clearSearch(); // استعادة القائمة إذا كان البحث فارغًا
   }
 }
 
@@ -12,24 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const booksContainer = document.getElementById("books-container");
   const searchInput = document.getElementById("search-input");
   const paginationContainer = document.getElementById("pagination");
-  const languageDropdown = document.getElementById("language-dropdown");
-  const booksSectionHeader = document.querySelector("h1"); // استهداف h1 آخر الكتب المضافة
+  const booksSectionHeader = document.querySelector("h1");
 
   let booksData = [];
   let currentPage = 1;
   const booksPerPage = 5;
+  let originalBooksData = []; // نسخة من البيانات الأصلية بدون بحث
 
   fetch("./books.json")
     .then(response => response.json())
     .then(data => {
       booksData = data.books.reverse(); // ترتيب عكسي للأحدث
+      originalBooksData = [...booksData]; // حفظ نسخة أصلية
       restoreState();
     })
     .catch(error => console.error("Error loading books:", error));
 
   function displayBooks() {
     booksContainer.innerHTML = "";
-    localStorage.setItem("currentPage", currentPage); // حفظ الصفحة الحالية
+    localStorage.setItem("currentPage", currentPage);
 
     const startIndex = (currentPage - 1) * booksPerPage;
     const selectedBooks = booksData.slice(startIndex, startIndex + booksPerPage);
@@ -77,11 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
       booksContainer.appendChild(bookSection);
     });
 
-    // حفظ آخر كتاب تم فتحه عند الضغط عليه
     document.querySelectorAll(".read-more-book").forEach(link => {
       link.addEventListener("click", (event) => {
         const bookId = event.target.dataset.id;
         localStorage.setItem("lastBookId", bookId);
+        localStorage.setItem("previousPage", currentPage); // حفظ الصفحة الحالية
       });
     });
   }
@@ -100,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPage--;
         displayBooks();
         updatePagination();
-        scrollToBooksSectionHeader(); // التمرير إلى h1
+        scrollToBooksSectionHeader();
       }
     });
 
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPage++;
         displayBooks();
         updatePagination();
-        scrollToBooksSectionHeader(); // التمرير إلى h1
+        scrollToBooksSectionHeader();
       }
     });
 
@@ -120,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
     paginationContainer.appendChild(nextButton);
   }
 
-  // دالة لتمرير الصفحة إلى h1
   function scrollToBooksSectionHeader() {
     if (booksSectionHeader) {
       booksSectionHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -128,32 +129,46 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function restoreState() {
-    const savedPage = localStorage.getItem("currentPage");
+    const savedPage = localStorage.getItem("previousPage");
+
+    // عند فتح الموقع، لا يتم استرجاع البحث، بل يتم عرض القائمة كما كانت
+    booksData = [...originalBooksData];
+
     if (savedPage) {
       currentPage = parseInt(savedPage);
+      localStorage.removeItem("previousPage");
+    } else {
+      currentPage = 1;
     }
 
-    const savedSearch = localStorage.getItem("searchQuery");
-    if (savedSearch) {
-      searchInput.value = savedSearch;
-      booksData = booksData.filter(book =>
-        book.title.toLowerCase().includes(savedSearch.toLowerCase()) || 
-        book.author.toLowerCase().includes(savedSearch.toLowerCase())
-      );
-    }
+    searchInput.value = ""; // تفريغ البحث حتى لا يتم الاحتفاظ به عند تحديث الصفحة
+    localStorage.removeItem("searchQuery");
 
+    displayBooks();
+    updatePagination();
+  }
+
+  function clearSearch() {
+    localStorage.removeItem("searchQuery");
+    searchInput.value = "";
+    booksData = [...originalBooksData];
+    currentPage = localStorage.getItem("previousPage") ? parseInt(localStorage.getItem("previousPage")) : 1;
     displayBooks();
     updatePagination();
   }
 
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
-    localStorage.setItem("searchQuery", query);
-    booksData = booksData.filter(book =>
-      book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query)
-    );
-    currentPage = 1;
-    displayBooks();
-    updatePagination();
+    if (query === "") {
+      clearSearch();
+    } else {
+      localStorage.setItem("searchQuery", query);
+      booksData = originalBooksData.filter(book =>
+        book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query)
+      );
+      currentPage = 1;
+      displayBooks();
+      updatePagination();
+    }
   });
 });
